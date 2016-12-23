@@ -16,7 +16,7 @@ struct item {
 //Radio Button with TableViewController
 class RadioButtonTableViewController: UITableViewController {
     
-    var items : [item] = [item(),item(),item(),item()]
+    var items : [item] = [item(),item(),item(),item(),item(),item(),item(),]
     
     var selectedRows = [Int]()
     

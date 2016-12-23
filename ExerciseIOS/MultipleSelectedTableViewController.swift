@@ -8,9 +8,14 @@
 
 import UIKit
 
-struct identity {
-    var isCheck : Bool = false
-}
+//struct identity {
+//    var isCheck : Bool = false
+//    var name : String
+//}
+//struct identity {
+//    var isCheck : Bool = false
+//  
+//}
 
 class MultipleSelectedTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -18,34 +23,44 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
     @IBOutlet weak var searchBar: UISearchBar!
     var selectedRows = [Int]()
     var filteredData: [String] = []
+//    var identitys : [identity] = [identity(),identity(),identity(),identity(),identity(),identity(),
+//                                  identity(),identity(),identity(),identity(),identity(),identity(),]
     var searchActive : Bool = false
     
-    let items = [
-        "Apple",
-        "Apricot",
-        "Avocado",
-        "Banana",
-        "Bilberry",
-        "Blackberry",
-        "Blackcurrant",
-        "Blueberry",
-        "Boysenberry",
-        "Currant",
-        "Cherry",
-        "Cherimoya",
-        "Cloudberry",
-        "Coconut",
-        "Cranberry",
-        "Cucumber",
-        "Custard apple",
-        "Damson",
-        "Date",
-        "Decaisnea Fargesii",
-        "Dragonfruit",
-        "Durian",
-        "Elderberry"
+//    var items = [identity(isCheck: false, name: "Apple"),
+//                 identity(isCheck: false, name: "Apricot"),
+//                 identity(isCheck: false, name: "Avocado"),
+//                 identity(isCheck: false, name: "Banana"),
+//                 identity(isCheck: false, name: "Bilberry"),
+//                 identity(isCheck: false, name: "Apricot"),
+//                 identity(isCheck: false, name: "Blueberry"),
+//                 identity(isCheck: false, name: "Apricot"),
+//                 identity(isCheck: false, name: "Cherimoya"),
+//                 identity(isCheck: false, name: "Cloudberry"),
+//                 identity(isCheck: false, name: "Cucumber"),
+//                 identity(isCheck: false, name: "Damson"),
+//                 identity(isCheck: false, name: "Durian"),
+//                 identity(isCheck: false, name: "Elderberry"),
+//                 identity(isCheck: false, name: "Mango"),
+//                 identity(isCheck: false, name: "Melon"),
+//                 identity(isCheck: false, name: "Grape"),
+//                 identity(isCheck: false, name: "Tomato"),
+//                 identity(isCheck: false, name: "Pear"),
+//                 identity(isCheck: false, name: "Lemon"),
+//                 identity(isCheck: false, name: "Watermelon"),]
     
-    ]
+    var items = ["Apple",
+                 "Apricot",
+                 "Bilberry",
+                 "Blueberry",
+                 "Apricot",
+                 "Cloudberry",
+                 "Durian",
+                 "Grape",
+                 "Pear",
+                 "Lemon",
+                 "Watermelon",]
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,11 +96,14 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
         present(countAlert, animated: true, completion: nil)
         
     }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
    
         return 1
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive){
             return filteredData.count
@@ -98,7 +116,6 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath)
         
-
         if(searchActive){
         
             if selectedRows.count > 0 {
@@ -112,6 +129,8 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
         return cell
     }
  
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = selectedRows.index(of: indexPath.row)
         
@@ -142,6 +161,9 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
 //    }
     
     
+    
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("========search active=======")
         
@@ -158,5 +180,7 @@ class MultipleSelectedTableViewController: UITableViewController, UISearchBarDel
         }
         self.tableView.reloadData()
     }
+    
+    
    
 }
